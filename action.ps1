@@ -25,8 +25,6 @@ param (
 #     if ($arraySeparator) {
 #         $argHash.arraySeparator = $arraySeparator
 #     }
-
-Set-Variables $InputObject
 # }
 
 function Set-Variables {
@@ -68,3 +66,5 @@ function Set-Variables {
         }
     }
 }
+
+Set-Variables $InputObject
