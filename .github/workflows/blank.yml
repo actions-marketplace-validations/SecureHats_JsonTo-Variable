@@ -1,14 +1,30 @@
-name: Validate # This is a basic workflow to help you get started with Actions
-on: push #workflow_dispatch
+# name: Validate # This is a basic workflow to help you get started with Actions
+# on: push #workflow_dispatch
 
-jobs:
-  jsonto-variable:
-    name: Json to Variable
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository code
-        uses: actions/checkout@v3
+# jobs:
+#   jsonto-variable:
+#     name: Json to Variable
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Check out repository code
+#         uses: actions/checkout@v3
 #       - name: SecureHats Variables
 #         uses: SecureHats/JsonTo-Variable@v0.0.4
 #         with:
 #           filePath: 'variables/env.json'
+
+name: Analytics
+on: push
+
+jobs:
+  pester-test:
+    name: validate detections
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Validate Sentinel Analytics Rules
+        uses: SecureHats/validate-detections@v1.1
+        with:
+          filesPath: templates
+          logLevel: Minimal
