@@ -61,7 +61,7 @@ function Set-Variables {
                 }
 
                 Write-Host "Creating variable '$variableName'."
-                $variableName=$propValue" >> $env:GITHUB_ENV
+                $variableName=$propValue >> $env:GITHUB_ENV
             }
         }
     }
