@@ -7,18 +7,18 @@
 
 # Microsoft Sentinel - template
 
-This GitHub action can be used to ...<br />
+This GitHub action can be used to create workflow variables from a json file<br />
 
 ### Example 1
 
 > Add the following code block to your Github workflow:
 
 ```yaml
-name: template
+name: JsonTo-Variable
 on:
   push:
     paths:
-      - samples/**
+      - variables/**
 
 jobs:
   template:
@@ -27,24 +27,10 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      - name: SecureHats template
-        uses: SecureHats/custom-logs@v1.0
+      - name: SecureHats JsonTo-Variable
+        uses: SecureHats/JsonTo-Variable@v0.0.1
         with:
-          filesPath: samples
-          workspaceId: ${{ secrets.WORKSPACEID }}
-          workspaceKey: ${{ secrets.WORKSPACEKEY }}
-```
-
-### Example 2 only send changed files
-
-> The output value from this action can be used as an input value for the `filesPath` parameter.
-
-```yaml      
-      - name: SecureHats template
-        uses: SecureHats/template@v1.0
-        with:
-          workspaceId: ${{ secrets.WORKSPACEID }}
-          workspaceKey: ${{ secrets.WORKSPACEKEY }}
+          filePath: 'variables'
 ```
 
 ### Inputs
@@ -53,9 +39,7 @@ This Action has the following format inputs.
 
 | Name | Req | Description
 |-|-|-|
-| **`filesPath`**  | false | Path to the directory containing the log files to be send, relative to the root of the project.<br /> This path is optional and defaults to the project root, in which case all files CSV files and JSON wills across the entire project tree will be discovered.
-| **`workspaceId`** | true | The workspace-id of the Log Analytics workspace.<br /> This value needs to be provided as a GitHub secret. see [documentation](https://github.com/Azure/actions-workflow-samples/blob/master/assets/create-secrets-for-GitHub-workflows.md) on how to create secrets in GitHub
-| **`workspaceKey`** | true | The primary or secondary key of the Log Analytics workspace.<br /> This value needs to be provided as a GitHub secret. see [documentation](https://github.com/Azure/actions-workflow-samples/blob/master/assets/create-secrets-for-GitHub-workflows.md) on how to create secrets in GitHub
+| **`filePath`**  | false | Path to the directory containing the log files to be send, relative to the root of the project.<br /> This path is optional and defaults to the project root, in which case all files CSV files and JSON wills across the entire project tree will be discovered.
 
 
 ## Current limitations / Under Development
