@@ -9,6 +9,6 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v3
       - name: SecureHats JsonTo-Variable
-        uses: SecureHats/JsonTo-Variable@v0.0.2
+        uses: SecureHats/JsonTo-Variable@v0.0.3
         with:
           filesPath: './variables/env.json'
