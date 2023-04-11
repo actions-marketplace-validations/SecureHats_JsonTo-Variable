@@ -3,8 +3,8 @@ name: JsonTo-Variable
 on: push
 
 jobs:
-  template:
-    name: Action Name
+  jsonto-variable:
+    name: Json to Variable
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
