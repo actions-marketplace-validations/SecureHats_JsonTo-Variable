@@ -12,6 +12,5 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: ${{ github.action_path }}/action.ps1 `
-              -filePath '${{ inputs.filePath }}'
+    - run: ${{ github.action_path }}/action.ps1 -filesPath ${{ inputs.filesPath }}
       shell: pwsh
