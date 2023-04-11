@@ -46,7 +46,7 @@ function Set-Variables {
             if ($propValue.GetType().Name -eq "PSCustomObject") {
                 $newParent = $prop.Name
                 if ($Parent) {
-                    $newParent = "$($Parent).$($prop.Name)"
+                    $newParent = "$($Parent)_$($prop.Name)"
                 }
                 Set-Variables -InputObject $propValue -Parent $newParent -ArraySeparator $ArraySeparator
             }
@@ -57,7 +57,7 @@ function Set-Variables {
 
                 $variableName = $prop.Name
                 if ($Parent) {
-                    $variableName = "$($Parent).$($prop.Name)"
+                    $variableName = "$($Parent)_$($prop.Name)"
                 }
 
                 Write-Host "Creating variable '$variableName'."
