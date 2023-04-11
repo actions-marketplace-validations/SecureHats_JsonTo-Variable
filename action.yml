@@ -1,4 +1,4 @@
-name: 'JsonTo-Varialbe'
+name: 'JsonTo-Variable'
 description: 'GitHub action to create workflow variables from a JSON input file'
 branding:
   icon: 'check-square'
@@ -12,5 +12,5 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: ${{ github.action_path }}/action.ps1 -filesPath ${{ inputs.filesPath }}
+    - run: ${{ github.action_path }}/action.ps1 -filePath ${{ inputs.filePath }}
       shell: pwsh
