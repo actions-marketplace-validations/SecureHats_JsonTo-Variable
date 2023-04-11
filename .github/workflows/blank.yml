@@ -1,7 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 name: JsonTo-Variable
-on:
-  push:
+on: push
 
 jobs:
   template:
@@ -13,4 +12,4 @@ jobs:
       - name: SecureHats JsonTo-Variable
         uses: SecureHats/JsonTo-Variable@v0.0.1
         with:
-          filePath: 'variables'
+          filePath: 'variables/env.json'
